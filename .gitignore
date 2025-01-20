@@ -1,0 +1,13 @@
+**/tmp
+**/test
+**/uploads
+*.db
+.project
+.pydevproject
+.env
+*.csv
+__pycache__
+**/data
+*.zip
+Untiled.ipynb
+**/results
