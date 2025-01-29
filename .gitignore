@@ -11,3 +11,6 @@ __pycache__
 *.zip
 Untiled.ipynb
 **/results
+**/.ipynb_checkpoints
+**/.qodo
+.qodo
