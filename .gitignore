@@ -14,4 +14,5 @@ Untiled.ipynb
 **/.ipynb_checkpoints
 **/.qodo
 .qodo
+*.sh
 start.RasOrb
