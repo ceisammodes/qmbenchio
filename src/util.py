@@ -1,3 +1,12 @@
+# Copyright (C) [2025] [Blondel Aymeric ATTOP project]
+#
+# This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License, version 3, as published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License, version 3, along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+
 import os
 import requests
 from tqdm import tqdm
@@ -39,11 +48,11 @@ def download_and_extract_zip(url, raw_folder='data/raw', extract_folder='data/ex
                     file.write(chunk)
                     bar.update(len(chunk))  # Mettre à jour la barre de progression
 
-        print(f"Le fichier zip a été téléchargé avec succès dans {zip_filename}")
+        print(f"The zip file was download with succes in {zip_filename}")
 
         # Décompresser le fichier zip
         with zipfile.ZipFile(zip_filename, 'r') as zip_ref:
             zip_ref.extractall(extract_folder)
-            print(f"Les fichiers ont été extraits dans {extract_folder}")
+            print(f"files will be extract in {extract_folder}")
     else:
-        print(f"Erreur de téléchargement : {response.status_code}")
+        print(f"error of download : {response.status_code}")
