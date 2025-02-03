@@ -1,23 +1,15 @@
-# molcas_IO_test
+# qmbenchio for benchmarking openmolcas IO
 
-## Description du test
+## Test Description
 
-- Soumission de calculs en job array au cluster pour tester la limite de l'I/O utilisant le /scratch comme tmp pour les fichiers temporaires.
+- Submission of calculations in a job array cluster to test the I/O limit using /scratch as temporary storage for files.
+- Type of calculations: Single point CASSCF with OpenMolcas evaluating energies, gradients, and nonadiabatic coupling - 
+Each subdirectory contains N copies of the same calculation (example : 1, 10, 100 ...) 
+with an estimated disk space requirement of 500 MB per individual calculation and a total of 500 GB required for the test at 1000.
 
-- Type de calculs: Single point CASSCF avec OpenMolcas évaluant les énergies, gradient et coupling nonadiabatique
+## Directory Content 
 
-- Chaque sous-dossier contient N copie du même calcul (1,10,100 et 1000) avec une estimation de 500 MB nécessaire en disque pour chaque calcul individuel. 500 GB nécessaire pour le test à 1000.
-
-## Protocol
-- Un script de soumission de calculs sub_molcas_nautilus_Xjob.sh est donné pour chaque set. 
-
-- Le script est configuré pour faire un job array avec X calculs écrivant tous en utilisant le /scratch comme tmp
-
-- Soumettre chaque script individuellement pour tester proprement la vitesse de 1 calcul et une seule I/O sur /scratch vs. X calculs et X écriture sur le /scratch
-
-## Contenu des dossiers
-
-Les dossiers Xjob contiennent X sous-dossiers géometrie par calculs:
+The Xjob directories contain X subdirectories named geometry, one for each calculation:
 ```
 100job
 |--geom_1
@@ -26,7 +18,16 @@ Les dossiers Xjob contiennent X sous-dossiers géometrie par calculs:
 |--geom_100
 ```
 
-Chaque dossier géometrie peut contenir les fichiers suivants:
+## Protocol
+- A script submission script sub_molcas_nautilus_Xjob.sh is provided for each set.
+
+- The script is configured to run a job array with X calculations, all writing to /scratch as temporary storage
+
+-  Submit each individual script to test the speed of 1 calculation and single I/O on /scratch vs.
+X calculations and X writes on /scratch.
+
+
+Each geometry directory can contain the following files:
 
 ```
 --geom_X
@@ -40,6 +41,8 @@ Chaque dossier géometrie peut contenir les fichiers suivants:
 
 Le walltime et cputime sont dans les dernières lignes de mol_input_1.output
 
-## Nettoyage du tmp ou scratch
+## Cleaning the tmp or scratch
+it depends on the scratch storage cluster infrastructure (Here it's an Example on Glicid Cluster)
+- All calculations write I/O to /scratch/waves/users/$USER/noRICD/X, where X corresponds to the number of calculations in the job array. Deleting /scratch/waves/users/$USER/noRICD allows for all cleanup.
 
-- Tous les calculs font l'I/O du tmp sur /scratch/waves/users/$USER/noRICD/X ou X correspond au nombre de calculs dans le job array. Effacer /scratch/waves/users/$USER/noRICD permet de tout nettoyer.
+
