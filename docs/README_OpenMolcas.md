@@ -19,7 +19,7 @@ The Xjob directories contain X subdirectories named geometry, one for each calcu
 ```
 
 ## Protocol
-- A script submission script sub_molcas_nautilus_Xjob.sh is provided for each set.
+- A script submission script sub_molcas_nautilus_Xjob.sh can be generated for each set.
 
 - The script is configured to run a job array with X calculations, all writing to /scratch as temporary storage
 
@@ -39,7 +39,7 @@ Each geometry directory can contain the following files:
   |--mol_input_1.status     #fichier contenant le message final du calcul ("Happy landing" si execution sans problème)
 ```
 
-Le walltime et cputime sont dans les dernières lignes de mol_input_1.output
+The walltime and cputime are in the last lines of mol_input_1.output
 
 ## Cleaning the tmp or scratch
 it depends on the scratch storage cluster infrastructure (Here it's an Example on Glicid Cluster)

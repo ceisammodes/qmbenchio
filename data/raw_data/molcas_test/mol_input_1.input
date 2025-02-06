@@ -1,0 +1,45 @@
+&GATEWAY
+ coord = geometry_1.xyz
+ basis = cc-pVDZ
+ group = nosymm
+
+&SEWARD
+ DoAnalytical
+
+&RASSCF
+ Fileorb = $CurrDir/start.RasOrb
+ Spin = 1
+ Nactel = 6 0 0 
+ Inactive = 19
+ Ras2 = 4
+ CiRoot = 3 3 1
+
+&MCLR
+ Sala = 1
+
+&ALASKA
+
+&MCLR
+ Sala = 2
+
+&ALASKA
+
+&MCLR
+ Sala = 3
+
+&ALASKA
+
+&MCLR
+ Nac = 1 2
+
+&ALASKA
+
+&MCLR
+Nac = 1 3
+
+&ALASKA
+
+&MCLR
+Nac = 2 3
+
+&ALASKA

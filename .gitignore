@@ -7,12 +7,12 @@
 .env
 *.csv
 __pycache__
-**/data
+**/data/processed_data/molcas_test/*
 *.zip
 Untiled.ipynb
 **/results
 **/.ipynb_checkpoints
 **/.qodo
+**/data/extracted/**
 .qodo
 *.sh
-start.RasOrb

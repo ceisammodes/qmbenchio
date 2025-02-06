@@ -45,9 +45,9 @@ Examples of ini files can be found in config.ini.
 cat /app/config.ini
 ```
 
->[Directories]
-RawData=../data/raw_data/molcas_test
-ProcessedData=../data/processed_data/molcas_test
+>[Directories] 
+>RawData=../data/raw_data/molcas_test
+>ProcessedData=../data/processed_data/molcas_test
 
 run interactively inside the container
 ```bash
@@ -56,12 +56,18 @@ run interactively inside the container
 
 ### First step : Generate the data
 
-Example for openmolcas io 
+Example for [openmolcas](docs/README_OpenMolcas.md) io 
 
 ```bash
 cd /app/scripts
- python generate_molcas_io_job.py --openmolcas --jobs 1 10 --dir titi
+python generate_molcas_io_job.py --openmolcas --jobs 1 10 --dir titi
 ```
+>[!NOTE] 
+> if the directories have already been generated the first time, it will only create the slurm files
+
+:::i "Info"
+sdsds
+:::
 
 The script take files in /app/data/raw_data and generate a titi bench with 1 job and 10 identical simultaneous job openmolcas IO input files. 
 
@@ -79,10 +85,21 @@ All files are generated in ProcessedData directory (cf config.ini)
     └── ...
 
 ### Second step : Launch the jobs and generate output
+You can make this directly in the first step if you add --slurm arg.
+If 
+```bash
+cd /app/scripts
+ python generate_molcas_io_job.py --openmolcas --slurm --jobs 1 10 --dir titi
+```
+This script use 2 templates slurm file in data/raw_data/molcas_test/
+#### Example for our Glicid regional Cluster Nautilus :
+```bash
 
-
+```
 ### Third Step : Analyse the output and generate report or chart
 
 
 ## 📢  is under active development
 
+## Acknowledgments
+“This benchmark io program used resources of the GLiCID Computing Facility (Ligerien Group for Intensive Distributed Computing, https://doi.org/10.60487/glicid, Pays de la Loire, France) 
