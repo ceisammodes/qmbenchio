@@ -1,5 +1,6 @@
 # qmbenchio for benchmarking openmolcas IO
 
+Thanks to thierry Tran (ATTOP Project) who suggested this openmolcas case to me
 ## Test Description
 
 - Submission of calculations in a job array cluster to test the I/O limit using /scratch as temporary storage for files.

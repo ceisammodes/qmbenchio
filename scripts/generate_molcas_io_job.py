@@ -27,6 +27,32 @@ DIR_RESULT_DATA = config['Directories']['ResultData']
 #DIR_PROCESSED_DATA = "../data/processed_data/molcas_test"
 #DIR_RAW_DATA ="../data/raw_data/molcas_test"
 
+
+def read_and_create_directories_from_ini(ini_file):
+    config = configparser.ConfigParser()
+    config.read(ini_file)
+
+    # Créer un dictionnaire pour stocker les données du fichier config.ini
+    data = {}
+
+    for section in config.sections():
+        data[section] = {}
+        for option in config.options(section):
+            directory_path = config.get(section, option)
+            data[section][option] = directory_path
+
+            # Créer le répertoire s'il n'existe pas déjà
+            if not os.path.exists(directory_path):
+                os.makedirs(directory_path)
+
+    return data
+
+
+def print_directories(directory_dict):
+    for section, paths in directory_dict.items():
+        if section == 'Directories':
+            for directory, path in paths.items():
+                print(f"{directory}: {path}")
 def openmolcas_create_directories(jobs, directory_name):
     """Create directories for jobs.
 
@@ -101,12 +127,12 @@ def openmolcas_replace_njob_in_slurm(input_filename, directory_name, number):
         output_filename (str): The path to the output file.
         number (int or str): The number to replace the placeholders with. Must not be equal to 1.
     """
-    print(f"Processing job {number}...")
+    print(f"Creating slurm file for job {number}...")
     if not os.path.exists(directory_name):
         os.mkdir(directory_name)  # Create main directory if it doesn't exist
     # Check that the number is not equal to 1
-    if number == 1:
-        print(f"Processing job {number}...")
+    #if number == 1:
+    #    print(f"Processing job {number}...")
 
         #raise ValueError("Number must not be equal to 1")
 
@@ -156,6 +182,9 @@ if __name__ == "__main__":
             openmolcas_replace_njob_in_slurm(DIR_RAW_DATA + "/sub_molcas_nautilus_njob.tpl",
                                              DIR_PROCESSED_DATA + "/" + args.dir, number)
     if args.jobs is not None and args.dir and args.openmolcas:
+        create_directories_by_ini=read_and_create_directories_from_ini("../config.ini")
+        print("Creating directories from ini files...")
+        print_directories(create_directories_by_ini)
         openmolcas_create_directories(args.jobs, DIR_PROCESSED_DATA + "/" + args.dir)
     else:
         print("Please provide both --openmolcas --jobs and --dir arguments and/or --slurm.")

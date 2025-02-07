@@ -11,7 +11,6 @@ import os
 import requests
 from tqdm import tqdm
 import zipfile
-
 def download_and_extract_zip(url, raw_folder='data/raw', extract_folder='data/extracted'):
     """
     Downloads a .zip file from a URL, saves it in the `raw_folder` directory,

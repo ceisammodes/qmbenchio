@@ -1,5 +1,5 @@
 #!/bin/bash
-
+## TEMPLATE QMBENCHIO 1JOB FOR GLICID CLUSTER
 #SBATCH --partition     standard
 #SBATCH --qos           short
 #SBATCH --job-name      SP
@@ -15,7 +15,7 @@ module purge
 module load openmolcas/current
 micromamba activate /micromamba/CEISAM/envs/openmolcas
 
-export TMPDIR="/scratch/waves/users/$USER/"
+export TMPDIR="/scratch/nautilus/users/$USER/"
 
 export SLURM_SUBMIT_DIR="$PWD"
 
@@ -26,10 +26,6 @@ export MOLCAS_MEM="4000"
 export MOLCAS_REDUCE_PRT="NO"
 export OMP_NUM_THREADS="1"
 export NAME="mol_input_1"
-
-#setenv MOLCAS_KEEP_WORKDIR NO
-#setenv MOLCAS_PROJECT NAME
-#setenv MOLCAS_OUTPUT NAME
 
 export WorkDir="${TMPDIR}/noRICD/{REMPLACE_NJOB}/geom_${SLURM_ARRAY_TASK_ID}/"
 mkdir -p $WorkDir
