@@ -160,6 +160,8 @@ http://127.0.0.1:8886/lab/tree/docs/notebooks/openmolcas_extract_bench.jnb.ipynb
 
 ## 📢  is under active development
 
+This project is archived in [Software Heritage](https://www.softwareheritage.org/). [![SWH](https://archive.softwareheritage.org/badge/swh:1:dir:865176700a11d437ead8824749111edc783750cd/)](https://archive.softwareheritage.org/swh:1:dir:865176700a11d437ead8824749111edc783750cd;origin=https://github.com/ceisammodes/qmbenchio;visit=swh:1:snp:b40b944715085f18e9eb231f6f53808fda485150;anchor=swh:1:rev:5cf2f61fdddf07a53724801b7ce671f4d39ea0ab)
+
 ## Licence
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with Copremo. If not, see http://www.gnu.org/licenses/.
 
@@ -170,3 +172,5 @@ If you use qmbenchio to get publisheable results, please cite: A.Blondel, qmbenc
 Thanks to thierry Tran (ATTOP project) for the OpenMolcas IO Bench case.
 
 “This benchmark io program used resources of the GLiCID Computing Facility (Ligerien Group for Intensive Distributed Computing, https://doi.org/10.60487/glicid, Pays de la Loire, France) 
+
+
